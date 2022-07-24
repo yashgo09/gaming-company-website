@@ -1,0 +1,50 @@
+
+/* Declaring some CSS variables */
+:root {
+  --clr-bg: #F6F4F0;
+  --clr-bg-dark: #F1CB9D;
+  --clr-bg-card: #FFA882;
+  --clr-theme: #CA3751;
+  --clr-txt-dark: #34314F;
+  --clr-black: #000;
+  --clr-white: #FFF;
+
+  --efx-card-shadow: 4px 4px 10px 0 rgba(202, 55, 81, 0.2);
+  --efx-game-img-shadow: 2px 2px 5px 0 rgba(202, 55, 81, 0.2);
+  --efx-navbar-shadow: 0 0 10px 0 rgba(202, 55, 81, 0.25);
+
+  --ff-primary: 'Ubuntu', sans-serif;
+  --ff-logo: 'Lobster', cursive;
+  --ff-heading: 'Suez One', serif;
+
+  --fw-regular: 400; /* Regular */
+  --fw-sub-heading: 600; /* Bold */
+  --fw-heading: 900; /* Black | Super Bold (Highest) */
+}
+
+/* CSS Reset by my own. Not using any advanced level of CSS reset available on web */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Utility Classes */
+.btn {
+  border-radius: 10px;
+}
+
+.btn,
+.btn:focus,
+.btn:hover {
+  border: none;
+  outline: none;
+}
