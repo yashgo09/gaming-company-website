@@ -8,18 +8,29 @@
   --clr-txt-dark: #34314F;
   --clr-black: #000;
   --clr-white: #FFF;
+  --clr-light-gray-text: #8e8e8e;
+
+  --linear-gradient-game-card: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #CA3751 100%);
 
   --efx-card-shadow: 4px 4px 10px 0 rgba(202, 55, 81, 0.2);
   --efx-game-img-shadow: 2px 2px 5px 0 rgba(202, 55, 81, 0.2);
   --efx-navbar-shadow: 0 0 10px 0 rgba(202, 55, 81, 0.25);
-
+  
   --ff-primary: 'Ubuntu', sans-serif;
   --ff-logo: 'Lobster', cursive;
   --ff-heading: 'Suez One', serif;
 
+  --fs-100: 1.1rem;
+  --fs-200: 1.5rem;
+  --fs-300: 2.2rem;
+  --fs-400: 3rem;
+  --fs-500: 4rem;
+
   --fw-regular: 400; /* Regular */
   --fw-sub-heading: 600; /* Bold */
   --fw-heading: 900; /* Black | Super Bold (Highest) */
+
+  --header-height: 3.4rem;
 }
 
 /* CSS Reset by my own. Not using any advanced level of CSS reset available on web */
@@ -37,14 +48,533 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Utility Classes */
-.btn {
-  border-radius: 10px;
+body {
+  font-family: var(--ff-primary);
+  line-height: 1.5;
+  background-color: var(--clr-bg);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-300);
+  font-weight: 900;
+  color: var(--clr-txt-dark);
+}
+
+h2 {
+  font-family: inherit;
+  font-size: var(--fs-200);
+  font-weight: var(--fw-sub-heading);
+  color: var(--clr-txt-dark);
+}
+
+h3 {
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: var(--fw-sub-heading);
+}
+
+p {
+  color: var(--clr-black);
+  font-size: 1rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Utility Classes */
 .btn,
 .btn:focus,
 .btn:hover {
-  border: none;
   outline: none;
+}
+
+.btn {
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 1rem 2.2rem;
+  background-color: var(--clr-bg-card);
+  color: var(--clr-white);
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease-out,
+    color 0.3s ease-out,
+    border 0.3s ease-out;
+}
+
+.btn:hover {
+  border: 2px solid var(--clr-bg-card);
+  background-color: var(--clr-white);
+  color: var(--clr-black)
+}
+
+.download-options img {
+  max-width: 7rem;
+}
+
+.container {
+  width: 88%;
+  margin: auto;
+}
+
+.download-options {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.download-options img {
+  max-width: 8rem;
+}
+
+.download-options a:nth-child(1) {
+  margin-right: 0.4em;
+}
+
+/* Header Styles */
+header .container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--clr-theme);
+  box-shadow: var(--efx-navbar-shadow);
+  height: var(--header-height);
+  padding: 0 1em;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.logo h1 {
+  color: var(--clr-white);
+  font-size: var(--fs-200);
+  font-family: var(--ff-logo);
+}
+
+.hamburger {
+  display: flex;
+  align-items: center;
+  background: var(--clr-white);
+  font-size: var(--fs-200);
+  box-shadow: var(--efx-navbar-shadow);
+  height: var(--header-height);
+  padding: 0 1em;
+  position: relative;
+  z-index: 14;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.navbar-small {
+  display: none;
+  /* display: flex; */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  list-style: none;
+  background: var(--clr-white);
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 4rem 2rem;
+  z-index: 11;
+}
+
+.navbar-small li {
+  padding: 1rem 1.2rem;
+  font-size: var(--fs-200);
+}
+
+.navbar-small a.active {
+  color: var(--clr-theme);
+}
+
+.nav-dropdown {
+  list-style: none;
+  display: none;
+}
+
+/* index.html styles */
+
+/* home-intro section styles */
+.home-intro {
+  padding-top: 5rem;
+  background-color: var(--clr-bg-dark);
+}
+
+.home-intro .content h1 {
+  font-size: var(--fs-400);
+}
+
+.home-intro .content h2 {
+  font-weight: 400;
+}
+
+.home-intro .download-options {
+  margin-top: 1rem;
+}
+
+.home-intro-img {
+  max-width: 500px;
+}
+
+.home-intro-img img {
+  max-width: 100%;
+}
+
+/* Home about section styles */
+.cards-container {
+  margin: 8% auto;
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.games-card img {
+  width: 400px;
+  height: 500px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease-out;
+}
+
+.games-card:hover img {
+  transform: scale(1.1);
+}
+
+.games-card .game-name {
+  position: absolute;
+  color: var(--clr-white);
+  left: 2.5rem;
+  bottom: 2.5rem;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+.game-name p {
+  color: var(--clr-white);
+  font-size: 0.9rem;
+}
+.games-card,
+.more-games-card {
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  width: 400px;
+  height: 500px;
+  cursor: pointer;
+}
+
+.more-games-card {
+  background-color: var(--clr-bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.more-games-card h3 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out;
+}
+
+.more-games-card:hover h3 {
+  transform: scale(1.1);
+}
+
+.games-card:hover .game-name,
+.more-games-card:hover .more-games-card h3 {
+  opacity: 0;
+}
+
+.games-card::before,
+.more-games-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+  background: var(--linear-gradient-game-card);
+  transition: opacity 0.3s ease-out;
+}
+
+.games-card:hover::before,
+.more-games-card:hover::before {
+  opacity: 0;
+}
+
+.about-tripo {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-tripo h1 {
+  line-height: 1.1;
+}
+
+.about-tripo .btn {
+  background-color: var(--clr-theme);
+  color: var(--clr-white);
+  border: 2px solid transparent;
+}
+
+.about-tripo .btn:hover {
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+  border: 2px solid var(--clr-theme);
+}
+
+.about-tripo .container > * {
+  margin: 1.2rem 0;
+}
+
+.about-img {
+  position: relative;
+}
+
+.about-img img:nth-child(1) {
+  border-radius: 15px;
+}
+
+.about-img img:nth-child(2) {
+  position: absolute;
+  left: -5%;
+  bottom: -25%;
+  width: 30%;
+}
+
+/* Our games section */
+.our-games {
+  text-align: center;
+}
+
+.our-games .container > * {
+  margin: 0.5em 0;
+}
+
+.games-description {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 1.4rem;
+  text-align: left;
+}
+
+.games-description p {
+  color: var(--clr-black);
+}
+
+.games-description > img {
+  max-width: 60%;
+  margin: auto;
+}
+
+.description-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 100%;
+  border-radius: 15px;
+  padding: 2rem;
+  overflow: hidden;
+  background: var(--clr-white);
+  box-shadow: var(--efx-card-shadow);
+  gap: 1.5em;
+}
+
+.game-name-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.game-profile-img {
+  width: 100px;
+  height: 100px;
+  margin-right: 1em;
+  border: 8px solid var(--clr-white);
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: var(--efx-game-img-shadow);
+}
+
+/* join-team section styles */
+.join-team {
+  background-color: var(--clr-theme);
+  padding: 2.5em 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.join-team h1,
+.join-team h2 {
+  color: var(--clr-white);
+  max-width: 16ch;
+}
+
+.join-team .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.2em;
+  z-index: 5;
+}
+
+.join-team img {
+  max-width: 30%;
+  position: absolute;
+  right: 1.2em;
+  bottom: -2em;
+  z-index: 4;
+}
+
+/* Contact Us section styles */
+.contact {
+  background: url('assets/img/contact-form-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: multiply;
+  padding: 2em 0;
+}
+
+.contact .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.get-in-touch-form,
+.newsletter-form {
+  width: 100%;
+  padding: 1.5em;
+  border-radius: 15px;
+  background-color: var(--clr-white);
+}
+
+.get-in-touch-form h1 {
+  font-size: 1.8rem;
+  font-family: var(--ff-primary);
+}
+
+.get-in-touch-form p {
+  margin-top: 0.1rem;
+  margin-bottom: 1.2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+input,
+textarea {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--clr-black);
+  outline: none;
+  width: 100%;
+  margin-top: 0.8em;
+}
+
+.f-l-name {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.newsletter-form {
+  background-color: var(--clr-theme);
+  color: var(--clr-white);
+}
+
+.newsletter-form h2 {
+  color: var(--clr-white);
+}
+
+.newsletter-form input {
+  margin-top: -0.8em;
+  border-color: var(--clr-white);
+}
+
+.newsletter-form form {
+  margin-top: 0.8em;
+}
+
+/* Footer styles */
+.footer-top {
+  text-align: center;
+}
+
+.footer-top h2 {
+  width: 20ch;
+  margin: auto;
+  margin-top: 0.6em;
+  font-weight: var(--fw-regular);
+  font-size: 1.2rem;
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid var(--clr-black);
+  border-bottom: 1px solid var(--clr-black);
+}
+
+.footer-main h3 {
+  margin-bottom: 1em;
+}
+
+.footer-main p,
+.footer-bottom p {
+  color: var(--clr-light-gray-text);
+}
+
+.nav-and-social {
+  display: flex;
+}
+
+.nav-and-social .navigation {
+  margin-right: 5em;
+}
+
+.footer-bottom {
+  margin-bottom: 2rem;
 }
