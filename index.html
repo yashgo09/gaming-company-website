@@ -36,33 +36,33 @@
           <!-- Maybe I will put SVG here or will see later -->
           🍔
         </div>
+        <ul class="navbar-large">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#games">Games</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
     </div>
 
 
     <!-- Navigation bar for small screens -->
     <ul class="navbar-small">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li class="nav-dropdown-container" style="cursor: pointer;">
-        <span class="nav-dropdown-text">Games</span>
-        <ul class="nav-dropdown">
-          <li class="nav-dropdown-items"><a href="#">Game 1</a></li>
-          <li class="nav-dropdown-items"><a href="#">Game 2</a></li>
-          <li class="nav-dropdown-items"><a href="#">Game 3</a></li>
-        </ul>
-      </li>
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="#games">Games</a></li>
       <li><a href="#careers">Careers</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-
+    
   </header>
 
   <!-- Main section of the website -->
   <main>
 
     <!-- The first section we see on home page -->
-    <section class="home-intro">
+    <section class="home-intro" id="home">
       <div class="container">
         <div class="content">
           <h1>Made to Be Played</h1>
@@ -72,39 +72,37 @@
             <a href="#"><img src="assets/img/download-btns/Apple-Store.webp" alt="Download from App Store"></a>
           </div>
         </div>
-
-        <div class="home-intro-img">
-          <img src="assets/img/characters/home-intro.png" alt="Game character">
-        </div>
       </div>
     </section>
 
     <!-- About Tripo section on home page -->
-    <section class="home-about">
+    <section class="home-about" id="about">
       <div class="cards-container">
-        <div class="games-card">
-          <img src="assets/img/games/game1.png" alt="game 1"> <!-- Change game name here -->
-          <div class="game-name">
-            <h3>Kipon</h3>
-            <p>Casual - Free</p>
+        <div class="cards-subcontainer">
+          <div class="games-card">
+            <img src="assets/img/games/game1.png" alt="game 1"> <!-- Change game name here -->
+            <div class="game-name">
+              <h3>Kipon</h3>
+              <p>Casual - Free</p>
+            </div>
           </div>
-        </div>
-        <div class="games-card">
-          <img src="assets/img/games/game2.png" alt="game 2"> <!-- Change game name here -->
-          <div class="game-name">
-            <h3>Robotrix</h3>
-            <p>RPG - Free</p>
+          <div class="games-card">
+            <img src="assets/img/games/game2.png" alt="game 2"> <!-- Change game name here -->
+            <div class="game-name">
+              <h3>Robotrix</h3>
+              <p>RPG - Free</p>
+            </div>
           </div>
-        </div>
-        <div class="games-card">
-          <img src="assets/img/games/game3.png" alt="game 3"> <!-- Change game name here -->
-          <div class="game-name">
-            <h3>Treasure Box</h3>
-            <p>Adventure - Free</p>
+          <div class="games-card">
+            <img src="assets/img/games/game3.png" alt="game 3"> <!-- Change game name here -->
+            <div class="game-name">
+              <h3>Treasure Box</h3>
+              <p>Adventure - Free</p>
+            </div>
           </div>
-        </div>
-        <div class="more-games-card">
-          <h3>Explore Our Games</h3> <!-- Add down arrow here -->
+          <div class="more-games-card">
+            <h3>Explore Our Games</h3> <!-- Add down arrow here -->
+          </div>
         </div>
       </div>
 
@@ -113,87 +111,93 @@
         <div class="container">
           <h2>About Tripo</h2>
           <h1>Your Source for Mobile Entertainment</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus aspernatur cupiditate expedita illum animi
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus aspernatur cupiditate expedita illum
+            animi
             nobis, magnam atque, at officia nulla harum libero officiis natus labore.</p>
           <a href="about.html"><button class="btn">Learn More</button></a>
           <div class="about-img">
-            <img src="assets/img/home-about-img.jpg" alt="Employees working on a 3D model">
-            <img src="assets/img/characters/home-about.png" alt="3D character">
+            <div class="img-container"><img src="assets/img/home-about-img.jpg" alt="Employees working on a 3D model" loading="lazy">
+            </div>
+            <div class="char-img-container"><img src="assets/img/characters/home-about.png" alt="3D character" loading="lazy"></div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Our games section on home page -->
-    <section class="our-games">
+    <section class="our-games" id="games">
       <div class="container">
         <h1>Our Games</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere a quaerat, nemo numquam libero voluptatibus?</p>
-        <img src="assets/img/characters/our-games.png" alt="">
-        <div class="games-description">
-          <div class="description-card">
-            <div class="game-name-container">
-              <span class="game-profile-img"><img src="assets/img/games/profile-game1.jpg" alt="Kipon image"></span>
-              <div class="game-name">
-                <h3>Kipon</h3>
-                <p>Casual - Free</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere a quaerat, nemo numquam libero voluptatibus?
+        </p>
+        <div class="subcontainer">
+          <div class="img-container"><img src="assets/img/characters/our-games.png" alt="3D character" loading="lazy"></div>
+          <div class="games-description">
+            <div class="description-card">
+              <div class="game-name-container">
+                <span class="game-profile-img"><img src="assets/img/games/profile-game1.jpg" alt="Kipon image" loading="lazy"></span>
+                <div class="game-name">
+                  <h3>Kipon</h3>
+                  <p>Casual - Free</p>
+                </div>
+              </div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, commodi modi? Illo doloribus ad sequi
+                illum odio. Expedita vitae aperiam impedit omnis dolores earum ab.</p>
+              <div class="download-options">
+                <a href="#"><img src="assets/img/download-btns/Google-Play.webp" alt="Download from Google Play"></a>
+                <a href="#"><img src="assets/img/download-btns/Apple-Store.webp" alt="Download from App Store"></a>
               </div>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, commodi modi? Illo doloribus ad sequi
-              illum odio. Expedita vitae aperiam impedit omnis dolores earum ab.</p>
-            <div class="download-options">
-              <a href="#"><img src="assets/img/download-btns/Google-Play.webp" alt="Download from Google Play"></a>
-              <a href="#"><img src="assets/img/download-btns/Apple-Store.webp" alt="Download from App Store"></a>
-            </div>
-          </div>
-          <div class="description-card">
-            <div class="game-name-container">
-              <span class="game-profile-img"><img src="assets/img/games/profile-game2.jpg" alt="Robotrix image"></span>
-              <div class="game-name">
-                <h3>Robotrix</h3>
-                <p>RPG - Free</p>
+            <div class="description-card">
+              <div class="game-name-container">
+                <span class="game-profile-img"><img src="assets/img/games/profile-game2.jpg" alt="Robotrix image" loading="lazy"></span>
+                <div class="game-name">
+                  <h3>Robotrix</h3>
+                  <p>RPG - Free</p>
+                </div>
+              </div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, commodi modi? Illo doloribus ad sequi
+                illum odio. Expedita vitae aperiam impedit omnis dolores earum ab.</p>
+              <div class="download-options">
+                <a href="#"><img src="assets/img/download-btns/Google-Play.webp" alt="Download from Google Play"></a>
+                <a href="#"><img src="assets/img/download-btns/Apple-Store.webp" alt="Download from App Store"></a>
               </div>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, commodi modi? Illo doloribus ad sequi
-              illum odio. Expedita vitae aperiam impedit omnis dolores earum ab.</p>
-            <div class="download-options">
-              <a href="#"><img src="assets/img/download-btns/Google-Play.webp" alt="Download from Google Play"></a>
-              <a href="#"><img src="assets/img/download-btns/Apple-Store.webp" alt="Download from App Store"></a>
-            </div>
-          </div>
-          <div class="description-card">
-            <div class="game-name-container">
-              <span class="game-profile-img"><img src="assets/img/games/profile-game3.png" alt="Treasure Box image"></span>
-              <div class="game-name">
-                <h3>Treasure Box</h3>
-                <p>Adventure - Free</p>
+            <div class="description-card">
+              <div class="game-name-container">
+                <span class="game-profile-img"><img src="assets/img/games/profile-game3.png" alt="Treasure Box image" loading="lazy"></span>
+                <div class="game-name">
+                  <h3>Treasure Box</h3>
+                  <p>Adventure - Free</p>
+                </div>
+              </div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, commodi modi? Illo doloribus ad sequi
+                illum odio. Expedita vitae aperiam impedit omnis dolores earum ab.</p>
+              <div class="download-options">
+                <a href="#"><img src="assets/img/download-btns/Google-Play.webp" alt="Download from Google Play"></a>
+                <a href="#"><img src="assets/img/download-btns/Apple-Store.webp" alt="Download from App Store"></a>
               </div>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, commodi modi? Illo doloribus ad sequi
-              illum odio. Expedita vitae aperiam impedit omnis dolores earum ab.</p>
-            <div class="download-options">
-              <a href="#"><img src="assets/img/download-btns/Google-Play.webp" alt="Download from Google Play"></a>
-              <a href="#"><img src="assets/img/download-btns/Apple-Store.webp" alt="Download from App Store"></a>
+            <div class="img-container"><img src="assets/img/characters/our-games-character.png" alt="3D character" loading="lazy">
             </div>
           </div>
-          <img src="assets/img/characters/our-games-character.png" alt="3D character">
         </div>
       </div>
     </section>
 
     <!-- Join Our Team Section -->
-    <section class="join-team">
+    <section class="join-team" id="careers">
       <div class="container">
         <h2>Join Our Team</h2>
         <h1>It takes the world's best talent to change the game.</h1>
         <a href="careers.html"><button class="btn">Explore Careers</button></a>
-        <img src="assets/img/characters/join-team.png" alt="">
+        <img src="assets/img/characters/join-team.png" alt="3D Character" loading="lazy">
       </div>
     </section>
 
     <!-- Contact Us Section -->
-    <section class="contact" id="contact">
-      <div class="container">
+    <section class="contact">
+      <div class="container" id="contact">
         <div class="get-in-touch-form">
           <h1>Get in Touch</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -223,8 +227,10 @@
           <h2>Subscribe to Our Newsletter</h2>
           <form action="#">
             <label for="newsletter">Email *</label>
-            <input type="email" name="newsletter" id="newsletter">
-            <button class="btn">Join</button>
+            <div class="subcontainer">
+              <input type="email" name="newsletter" id="newsletter">
+              <button class="btn">Join</button>
+            </div>
           </form>
         </div>
       </div>
@@ -253,25 +259,23 @@
             <p>San Francisco, CA 94158</p>
           </div>
         </div>
-        <div class="nav-and-social">
-          <div class="navigation">
-            <h3>Navigation</h3>
-            <p><a href="#">Games</a></p>
-            <p><a href="#">Careers</a></p>
-            <p><a href="#">About</a></p>
-            <p><a href="#">Contact</a></p>
-            <p><a href="#">Privacy Policy</a></p>
-            <p><a href="#">Terms & Conditions</a></p>
-          </div>
-          <div class="social">
-            <h3>Social</h3>
-            <p><a href="#">Discord</a></p>
-            <p><a href="#">Twitch</a></p>
-            <p><a href="#">Facebook</a></p>
-            <p><a href="#">YouTube</a></p>
-            <p><a href="#">Twitter</a></p>
-            <p><a href="#">LinkedIn</a></p>
-          </div>
+        <div class="navigation">
+          <h3>Navigation</h3>
+          <p><a href="#">Games</a></p>
+          <p><a href="#">Careers</a></p>
+          <p><a href="#">About</a></p>
+          <p><a href="#">Contact</a></p>
+          <p><a href="#">Privacy Policy</a></p>
+          <p><a href="#">Terms & Conditions</a></p>
+        </div>
+        <div class="social">
+          <h3>Social</h3>
+          <p><a href="#">Discord</a></p>
+          <p><a href="#">Twitch</a></p>
+          <p><a href="#">Facebook</a></p>
+          <p><a href="#">YouTube</a></p>
+          <p><a href="#">Twitter</a></p>
+          <p><a href="#">LinkedIn</a></p>
         </div>
         <div class="find-us">
           <h3>Find Us On</h3>

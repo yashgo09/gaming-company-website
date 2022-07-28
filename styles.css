@@ -127,6 +127,8 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .download-options img {
@@ -146,6 +148,11 @@ header .container {
   left: 50%;
   transform: translateX(-50%);
   z-index: 12;
+  height: var(--header-height);
+}
+
+nav {
+  height: 100%;
 }
 
 .logo {
@@ -153,7 +160,7 @@ header .container {
   align-items: center;
   background-color: var(--clr-theme);
   box-shadow: var(--efx-navbar-shadow);
-  height: var(--header-height);
+  height: 100%;
   padding: 0 1em;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -171,12 +178,48 @@ header .container {
   background: var(--clr-white);
   font-size: var(--fs-200);
   box-shadow: var(--efx-navbar-shadow);
-  height: var(--header-height);
+  height: 100%;
   padding: 0 1em;
   position: relative;
   z-index: 14;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.navbar-large {
+  display: none;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--efx-navbar-shadow);
+  height: 100%;
+}
+
+.navbar-large li {
+  height: 100%;
+  font-size: var(--fs-100);
+}
+
+.navbar-large li a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 1.8rem;
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+  transition:
+  background-color 0.3s ease-out,
+  color 0.3s ease-out;
+}
+
+.navbar-large li a.active,
+.navbar-large li a:hover {
+  background-color: var(--clr-theme);
+  color: var(--clr-white);
 }
 
 .navbar-small {
@@ -205,43 +248,45 @@ header .container {
   color: var(--clr-theme);
 }
 
-.nav-dropdown {
-  list-style: none;
-  display: none;
-}
-
 /* index.html styles */
 
 /* home-intro section styles */
 .home-intro {
-  padding-top: 5rem;
+  padding: 6rem 0;
+  background: url('assets/img/characters/home-intro.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   background-color: var(--clr-bg-dark);
 }
 
 .home-intro .content h1 {
   font-size: var(--fs-400);
+  width: 10ch;
 }
 
 .home-intro .content h2 {
   font-weight: 400;
+  width: 20ch;
 }
 
 .home-intro .download-options {
   margin-top: 1rem;
 }
 
-.home-intro-img {
-  max-width: 500px;
-}
-
-.home-intro-img img {
-  max-width: 100%;
-}
-
 /* Home about section styles */
 .cards-container {
   margin: 8% auto;
-  width: 85%;
+  width: 88%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.cards-subcontainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -255,11 +300,12 @@ header .container {
   height: 500px;
   display: block;
   object-fit: cover;
-  transition: transform 0.3s ease-out;
+  /* transition: transform 0.3s ease-out; */
 }
 
-.games-card:hover img {
-  transform: scale(1.1);
+.games-card:hover,
+.more-games-card:hover {
+  transform: scale(1.02);
 }
 
 .games-card .game-name {
@@ -275,14 +321,16 @@ header .container {
   color: var(--clr-white);
   font-size: 0.9rem;
 }
+
 .games-card,
 .more-games-card {
   border-radius: 15px;
   overflow: hidden;
   position: relative;
-  width: 400px;
+  max-width: 400px;
   height: 500px;
   cursor: pointer;
+  transition: transform 0.3s ease-out;
 }
 
 .more-games-card {
@@ -290,6 +338,8 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  width: 100%;
 }
 
 .more-games-card h3 {
@@ -306,8 +356,7 @@ header .container {
   transform: scale(1.1);
 }
 
-.games-card:hover .game-name,
-.more-games-card:hover .more-games-card h3 {
+.games-card:hover .game-name {
   opacity: 0;
 }
 
@@ -321,7 +370,7 @@ header .container {
   bottom: 0;
   opacity: 1;
   background: var(--linear-gradient-game-card);
-  transition: opacity 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .games-card:hover::before,
@@ -336,6 +385,7 @@ header .container {
 
 .about-tripo h1 {
   line-height: 1.1;
+  max-width: 25ch;
 }
 
 .about-tripo .btn {
@@ -350,23 +400,37 @@ header .container {
   border: 2px solid var(--clr-theme);
 }
 
-.about-tripo .container > * {
-  margin: 1.2rem 0;
+.about-tripo .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 .about-img {
+  width: fit-content;
   position: relative;
+}
+
+.about-img .img-container {
+  max-width: 800px;
+  margin: auto;
 }
 
 .about-img img:nth-child(1) {
   border-radius: 15px;
 }
 
-.about-img img:nth-child(2) {
+.about-img .char-img-container {
+  max-width: 100px;
   position: absolute;
-  left: -5%;
-  bottom: -25%;
-  width: 30%;
+  left: -1.2rem;
+  bottom: -3.5rem;
+}
+
+.about-img .char-img-container img {
+  max-width: 100%;
 }
 
 /* Our games section */
@@ -376,6 +440,15 @@ header .container {
 
 .our-games .container > * {
   margin: 0.5em 0;
+}
+
+.our-games .img-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.games-description .img-container img {
+  max-width: 250px;
 }
 
 .games-description {
@@ -390,15 +463,10 @@ header .container {
   color: var(--clr-black);
 }
 
-.games-description > img {
-  max-width: 60%;
-  margin: auto;
-}
-
 .description-card {
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: flex-start;
   width: 100%;
   border-radius: 15px;
   padding: 2rem;
@@ -478,7 +546,7 @@ header .container {
 .get-in-touch-form,
 .newsletter-form {
   width: 100%;
-  padding: 1.5em;
+  padding: 1.4em;
   border-radius: 15px;
   background-color: var(--clr-white);
 }
@@ -499,6 +567,13 @@ form {
   gap: 1.2rem;
 }
 
+form .subcontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: -0.8em;
+}
+
 input,
 textarea {
   padding: 1rem;
@@ -507,6 +582,10 @@ textarea {
   outline: none;
   width: 100%;
   margin-top: 0.8em;
+}
+
+textarea {
+  resize: none;
 }
 
 .f-l-name {
@@ -525,7 +604,7 @@ textarea {
 }
 
 .newsletter-form input {
-  margin-top: -0.8em;
+  margin-top: 0;
   border-color: var(--clr-white);
 }
 
@@ -559,7 +638,7 @@ textarea {
 }
 
 .footer-main h3 {
-  margin-bottom: 1em;
+  margin-bottom: 0.8em;
 }
 
 .footer-main p,
@@ -567,14 +646,238 @@ textarea {
   color: var(--clr-light-gray-text);
 }
 
-.nav-and-social {
-  display: flex;
-}
-
-.nav-and-social .navigation {
-  margin-right: 5em;
+.footer-main p {
+  line-height: 2;
 }
 
 .footer-bottom {
   margin-bottom: 2rem;
+}
+
+/* Media query for devices with width more than 600px */
+
+@media only screen and (min-width: 600px) {
+
+  .home-intro {
+    padding: 7rem 0;
+  }
+
+  .cards-container {
+    margin: 5% auto;
+  }
+
+  .join-team img {
+    max-width: 200px;
+  }
+
+  .about-tripo .container {
+    gap: 2.2rem;
+  }
+
+  .about-img .char-img-container {
+    max-width: 150px;
+    left: -1.6rem;
+    bottom: -5rem;
+  }
+
+  .get-in-touch-form,
+  .newsletter-form {
+    padding: 2.5em;
+  }
+
+  .footer-main {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: top;
+    justify-content: space-around;
+    gap: 3rem;
+  }
+
+  .footer-main p {
+    line-height: 2.2;
+  }
+
+}
+
+/* Media query for devices with width more than 1000px */
+
+@media only screen and (min-width: 1000px) {
+
+  :root {
+    --fs-300: 3rem;
+
+    --header-height: 4rem;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .navbar-large {
+    display: flex;
+  }
+
+  .home-intro {
+    padding-top: 10rem;
+    padding-bottom: 18rem;
+    background-size: contain;
+    background-position: center right;
+  }
+
+  .home-intro .content h1 {
+    font-size: var(--fs-500);
+    width: fit-content
+  }
+  
+  .home-intro .content h2 {
+    font-size: var(--fs-200);
+    width: fit-content;
+  }
+
+  .home-intro .download-options {
+    margin-top: 2rem;
+  }
+
+  .about-img .char-img-container {
+    max-width: 175px;
+    left: -3rem;
+    bottom: -6rem;
+  }
+
+  .cards-container {
+    flex-wrap: nowrap;
+    margin: 0 auto;
+  }
+  
+  .cards-subcontainer {
+    flex-wrap: nowrap;
+    position: relative;
+    top: -5rem;
+    left: 0;
+    max-width: 100%;
+    gap: 2rem;
+  }
+
+  .games-card img,
+  .games-card,
+  .more-games-card {
+    width: 300px;
+    height: 400px;
+  }
+
+  .about-tripo h1 {
+    width: 25ch;
+  }
+
+  .about-tripo p {
+    width: 75ch;
+  }
+
+  .our-games {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .our-games p {
+    width: 75ch;
+    margin: auto;
+  }
+
+  .our-games .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .our-games .subcontainer {
+    position: relative;
+    width: 100%;
+  }
+
+  .our-games .img-container {
+    max-width: 800px;
+  }
+
+  .games-description {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-content: space-between;
+  }
+
+  .description-card {
+    width: 400px;
+  }
+
+  .description-card:nth-child(2),
+  .description-card:nth-child(4) {
+    justify-self: flex-end;
+  }
+
+  .description-card p {
+    width: 100%;
+    margin: 0;
+  }
+
+  .join-team {
+    padding-bottom: 20em;
+  }
+
+  .join-team img {
+    max-width: 350px;
+    bottom: -2.8em;
+    right: 8%;
+  }
+
+  .contact {
+    padding: 0;
+  }
+
+  .contact .container {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    gap: 2rem;
+    top: -15rem;
+  }
+
+  .get-in-touch-form,
+  .newsletter-form {
+    max-width: 450px;
+  }
+
+  form .subcontainer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .f-l-name {
+    flex-direction: row;
+  }
+
+  .footer-main {
+    flex-wrap: nowrap;
+    margin: 4rem auto;
+    padding: 4rem 0;
+    width: 80%;
+  }
+
+  .footer-main p {
+    line-height: 2.4;
+  }
+
+  .footer-bottom {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+  
 }
