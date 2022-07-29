@@ -33,15 +33,18 @@
       <nav>
         <!-- Hamburger menu only visible on devices with smaller width -->
         <div class="hamburger">
-          <!-- Maybe I will put SVG here or will see later -->
-          🍔
+          <div class="hamburger-container">
+            <span class="hamburger-icon"></span>
+          </div>
         </div>
+
+        <!-- Using same piece of code for small and large devices which I don't like at all but will change later -->
         <ul class="navbar-large">
           <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#games">Games</a></li>
           <li><a href="#careers">Careers</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact-scroll">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -49,11 +52,11 @@
 
     <!-- Navigation bar for small screens -->
     <ul class="navbar-small">
-      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#games">Games</a></li>
       <li><a href="#careers">Careers</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact-scroll">Contact</a></li>
     </ul>
     
   </header>
@@ -100,9 +103,11 @@
               <p>Adventure - Free</p>
             </div>
           </div>
-          <div class="more-games-card">
-            <h3>Explore Our Games</h3> <!-- Add down arrow here -->
-          </div>
+          <a href="#games">
+            <div class="more-games-card" style="cursor: pointer;">
+            <h3>Explore Our Games</h3>
+            </div>
+          </a>
         </div>
       </div>
 
@@ -114,11 +119,11 @@
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus aspernatur cupiditate expedita illum
             animi
             nobis, magnam atque, at officia nulla harum libero officiis natus labore.</p>
-          <a href="about.html"><button class="btn">Learn More</button></a>
+          <a href="#"><button class="btn">Learn More</button></a>
           <div class="about-img">
-            <div class="img-container"><img src="assets/img/home-about-img.jpg" alt="Employees working on a 3D model" loading="lazy">
+            <div class="img-container"><img src="assets/img/home-about-img.jpg" alt="Employees working on a 3D model">
             </div>
-            <div class="char-img-container"><img src="assets/img/characters/home-about.png" alt="3D character" loading="lazy"></div>
+            <div class="char-img-container"><img src="assets/img/characters/home-about.png" alt="3D character"></div>
           </div>
         </div>
       </div>
@@ -131,11 +136,11 @@
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere a quaerat, nemo numquam libero voluptatibus?
         </p>
         <div class="subcontainer">
-          <div class="img-container"><img src="assets/img/characters/our-games.png" alt="3D character" loading="lazy"></div>
+          <div class="img-container"><img src="assets/img/characters/our-games.png" alt="3D character"></div>
           <div class="games-description">
-            <div class="description-card">
+            <div class="description-card slide-up">
               <div class="game-name-container">
-                <span class="game-profile-img"><img src="assets/img/games/profile-game1.jpg" alt="Kipon image" loading="lazy"></span>
+                <span class="game-profile-img"><img src="assets/img/games/profile-game1.jpg" alt="Kipon image"></span>
                 <div class="game-name">
                   <h3>Kipon</h3>
                   <p>Casual - Free</p>
@@ -148,9 +153,9 @@
                 <a href="#"><img src="assets/img/download-btns/Apple-Store.webp" alt="Download from App Store"></a>
               </div>
             </div>
-            <div class="description-card">
+            <div class="description-card slide-up">
               <div class="game-name-container">
-                <span class="game-profile-img"><img src="assets/img/games/profile-game2.jpg" alt="Robotrix image" loading="lazy"></span>
+                <span class="game-profile-img"><img src="assets/img/games/profile-game2.jpg" alt="Robotrix image"></span>
                 <div class="game-name">
                   <h3>Robotrix</h3>
                   <p>RPG - Free</p>
@@ -163,9 +168,9 @@
                 <a href="#"><img src="assets/img/download-btns/Apple-Store.webp" alt="Download from App Store"></a>
               </div>
             </div>
-            <div class="description-card">
+            <div class="description-card slide-up">
               <div class="game-name-container">
-                <span class="game-profile-img"><img src="assets/img/games/profile-game3.png" alt="Treasure Box image" loading="lazy"></span>
+                <span class="game-profile-img"><img src="assets/img/games/profile-game3.png" alt="Treasure Box image"></span>
                 <div class="game-name">
                   <h3>Treasure Box</h3>
                   <p>Adventure - Free</p>
@@ -178,7 +183,7 @@
                 <a href="#"><img src="assets/img/download-btns/Apple-Store.webp" alt="Download from App Store"></a>
               </div>
             </div>
-            <div class="img-container"><img src="assets/img/characters/our-games-character.png" alt="3D character" loading="lazy">
+            <div class="img-container slide-up"><img src="assets/img/characters/our-games-character.png" alt="3D character">
             </div>
           </div>
         </div>
@@ -190,14 +195,14 @@
       <div class="container">
         <h2>Join Our Team</h2>
         <h1>It takes the world's best talent to change the game.</h1>
-        <a href="careers.html"><button class="btn">Explore Careers</button></a>
-        <img src="assets/img/characters/join-team.png" alt="3D Character" loading="lazy">
+        <a href="#"><button class="btn">Explore Careers</button></a>
+        <img src="assets/img/characters/join-team.png" alt="3D Character" class="slide-up">
       </div>
     </section>
 
     <!-- Contact Us Section -->
-    <section class="contact">
-      <div class="container" id="contact">
+    <section class="contact" id="contact">
+      <div class="container" id="contact-scroll">
         <div class="get-in-touch-form">
           <h1>Get in Touch</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -223,7 +228,7 @@
             <button class="btn">Submit</button>
           </form>
         </div>
-        <div class="newsletter-form">
+        <div class="newsletter-form slide-up">
           <h2>Subscribe to Our Newsletter</h2>
           <form action="#">
             <label for="newsletter">Email *</label>

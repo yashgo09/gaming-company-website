@@ -33,6 +33,19 @@
   --header-height: 3.4rem;
 }
 
+::selection {
+  color: var(--clr-white);
+  background-color: var(--clr-theme);
+}
+
+header ::selection,
+.join-team ::selection,
+.newsletter-form ::selection,
+.logo ::selection {
+  color: var(--clr-theme);
+  background-color: var(--clr-white);
+}
+
 /* CSS Reset by my own. Not using any advanced level of CSS reset available on web */
 *,
 *::before,
@@ -46,6 +59,7 @@
 html {
   font-size: 100%;
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height, 3.4rem);
 }
 
 body {
@@ -87,6 +101,7 @@ p {
 img {
   max-width: 100%;
 }
+/* CSS reset ends */
 
 /* Utility Classes */
 .btn,
@@ -139,6 +154,20 @@ img {
   margin-right: 0.4em;
 }
 
+.slide-up {
+  transform: translateY(40%);
+  opacity: 0;
+  transition:
+    transform 400ms ease-out,
+    opacity 350ms ease-out;
+}
+
+.appear {
+  transform: translateY(0);
+  opacity: 1;
+}
+/* Utility classes ends */
+
 /* Header Styles */
 header .container {
   display: flex;
@@ -173,6 +202,9 @@ nav {
 }
 
 .hamburger {
+  --transition-time: 200ms;
+  --transition-delay: 300ms;
+
   display: flex;
   align-items: center;
   background: var(--clr-white);
@@ -184,7 +216,54 @@ nav {
   z-index: 14;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  cursor: pointer;
 }
+
+.hamburger-container {
+  position: relative;
+}
+
+/* -> Hamburger icon styles for the animation */
+.hamburger-icon,
+.hamburger-icon::before,
+.hamburger-icon::after {
+  display: block;
+  width: 1.2em;
+  height: 4px;
+  background-color: var(--clr-black);
+  border-radius: 5px;
+  transition: all var(--transition-time) ease-in-out;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.hamburger-icon::before { bottom: 8px; }
+.hamburger-icon::after { top: 8px; }
+
+.clicked .hamburger-icon {
+  transform: rotate(45deg);
+  transition-delay: var(--transition-delay);
+}
+
+.clicked .hamburger-icon::before {
+  bottom: 0;
+  opacity: 0;
+  transition-delay: var(--transition-delay), 0s;
+  transition-property: opacity, bottom;
+}
+
+.clicked .hamburger-icon::after {
+  top: 0;
+  transform: rotate(90deg);
+  transition-delay: var(--transition-delay), 0s;
+  transition-property: transform, top;
+}
+/* -> Hamburger icon styles ends */
 
 .navbar-large {
   display: none;
@@ -224,7 +303,6 @@ nav {
 
 .navbar-small {
   display: none;
-  /* display: flex; */
   position: fixed;
   left: 0;
   top: 0;
@@ -239,6 +317,10 @@ nav {
   z-index: 11;
 }
 
+.navbar-small.visible {
+  display: flex;
+}
+
 .navbar-small li {
   padding: 1rem 1.2rem;
   font-size: var(--fs-200);
@@ -247,8 +329,7 @@ nav {
 .navbar-small a.active {
   color: var(--clr-theme);
 }
-
-/* index.html styles */
+/* Header styles ends */
 
 /* home-intro section styles */
 .home-intro {
@@ -258,6 +339,7 @@ nav {
   background-position: center;
   background-size: cover;
   background-color: var(--clr-bg-dark);
+  background-attachment: fixed;
 }
 
 .home-intro .content h1 {
@@ -273,6 +355,7 @@ nav {
 .home-intro .download-options {
   margin-top: 1rem;
 }
+/* home-intro section styles ends */
 
 /* Home about section styles */
 .cards-container {
@@ -300,7 +383,6 @@ nav {
   height: 500px;
   display: block;
   object-fit: cover;
-  /* transition: transform 0.3s ease-out; */
 }
 
 .games-card:hover,
@@ -329,7 +411,7 @@ nav {
   position: relative;
   max-width: 400px;
   height: 500px;
-  cursor: pointer;
+  cursor: default;
   transition: transform 0.3s ease-out;
 }
 
@@ -416,6 +498,24 @@ nav {
 .about-img .img-container {
   max-width: 800px;
   margin: auto;
+  position: relative;
+}
+
+.about-img .img-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--linear-gradient-game-card);
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+}
+
+.about-img .img-container:hover::before {
+  opacity: 1;
 }
 
 .about-img img:nth-child(1) {
@@ -432,6 +532,7 @@ nav {
 .about-img .char-img-container img {
   max-width: 100%;
 }
+/* Home about section styles ends */
 
 /* Our games section */
 .our-games {
@@ -491,6 +592,7 @@ nav {
   overflow: hidden;
   box-shadow: var(--efx-game-img-shadow);
 }
+/* Our games section styles ends */
 
 /* join-team section styles */
 .join-team {
@@ -522,6 +624,7 @@ nav {
   bottom: -2em;
   z-index: 4;
 }
+/* join-team section styles ends */
 
 /* Contact Us section styles */
 .contact {
@@ -611,10 +714,15 @@ textarea {
 .newsletter-form form {
   margin-top: 0.8em;
 }
+/* Contact Us section styles ends */
 
 /* Footer styles */
 .footer-top {
   text-align: center;
+}
+
+.footer-top .logo {
+  height: var(--header-height);
 }
 
 .footer-top h2 {
@@ -653,6 +761,7 @@ textarea {
 .footer-bottom {
   margin-bottom: 2rem;
 }
+/* Footer styles ends */
 
 /* Media query for devices with width more than 600px */
 
